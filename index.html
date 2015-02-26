@@ -9,13 +9,14 @@
             var docEl = win.document.documentElement;
             var b = docEl.getBoundingClientRect().width;
             var c = win.devicePixelRatio;
+            var scale = 1/c;
             var max = 640;
             var base = 16;
             b / c > max && (b = max * c);
             docEl.rem = b / base;
             docEl.style.fontSize = docEl.rem*c + "px";
             docEl.setAttribute('data-dpr', c);
-            document.querySelector('meta[name=viewport]').setAttribute('content', 'width=device-width, user-scalable=no, initial-scale='+1/c+', maximum-scale='+1/c+', minimum-scale='+1/c);
+            document.querySelector('meta[name=viewport]').setAttribute('content', 'width=device-width, user-scalable=no, initial-scale='+scale+', maximum-scale='+scale+', minimum-scale='+scale);
         })(window);
     </script>
     <style>
