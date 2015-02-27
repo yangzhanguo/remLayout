@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>remInit</title>
+    <title>rem layout</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <script>
         (function(win){
@@ -20,13 +20,52 @@
         })(window);
     </script>
     <style>
-        .g-layout{max-width: 16rem;margin: 0 auto;}
-        #demo{height: 1rem;background: #ddd;}
+        *{margin: 0;padding: 0;}
+        body{font-family: "Microsoft YaHei", Arial, sans-serif;}
+        ul,dl,ol{list-style: none;}
+        .g-layout{max-width: 16rem;margin: 0 auto;font-size: .75rem;}
+        #demo{padding: 0.25rem;background: #ccc;border: 1px solid blue;line-height: 1.5;box-sizing: border-box;font-size: 0.65rem;}
+        #demo h3{font-size: .8rem;font-weight: normal;}
+        [data-dpr='2'] #demo{border: 2px solid blue;}
+        [data-dpr='3'] #demo{border: 3px solid blue;}
+        .content{overflow: hidden;margin:.5rem 0;}
+        .content-left{float: left;width: 20%;height: 8rem;background: #ddd;}
+        .content-right{float: right;width: 80%;height: 8rem;background: #ccc;}
+        .banner{height: 3rem;background: #ddd;text-align: center;line-height: 3rem;}
+        .logos{margin:.5rem 0;overflow: hidden;}
+        .logoslist{overflow: hidden;}
+        .logoslist li{width: 25%;float: left;height: 4rem;background: #ccc;line-height: 4rem;text-align: center;border:2px solid #fff;border-top: none;border-left: none;box-sizing:border-box;}
+        .logoslist li:nth-child(4n){border-right: none;}
+        .copyright{font-size: .5rem;text-align: center;}
     </style>
 </head>
 <body>
     <div class="g-layout">
-        <div id="demo"></div>    
-    </div>    
+        <div id="demo">
+            <h3>新闻</h3>
+            核心提示：美国《华尔街日报》评论认为，“习近平打虎面临更多挑战。”美国多维新闻网刊文称“习近平挥棒打虎卡通画，尺度大惊人。”世界新闻网则表示，“Q版习大大打虎，神秘工作室出品。”
+        </div>
+        <div class="content">
+            <div class="content-left">left</div>
+            <div class="content-right">right</div>
+        </div>
+        <div class="banner">banner</div>
+        <div class="logos">
+            <ul class="logoslist">
+                <li>logos_01</li>
+                <li>logos_02</li>
+                <li>logos_03</li>
+                <li>logos_04</li>
+                <li>logos_05</li>
+                <li>logos_06</li>
+                <li>logos_07</li>
+                <li>logos_08</li>
+            </ul>
+        </div>
+        <div class="copyright">
+            <p>版权所有：北京XX有限公司</p>
+            <p>Copyright©2014</p>
+        </div>
+    </div>
 </body>
 </html>
