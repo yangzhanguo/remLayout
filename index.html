@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>rem layout</title>
+    <title>remLayout</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <script>
         (function(win){
@@ -37,12 +37,15 @@
         .logoslist li{width: 25%;float: left;height: 4rem;background: #ccc;line-height: 4rem;text-align: center;border:2px solid #fff;border-top: none;border-left: none;box-sizing:border-box;}
         .logoslist li:nth-child(4n){border-right: none;}
         .copyright{font-size: .5rem;text-align: center;}
+        .adbox{position: relative;width: 100%;height: 2.5rem;margin-top:.5rem;overflow: hidden; }
+        .ad{height: 2.5rem;}
+        .ad li{float: left;width: 16rem;height: 2.5rem;background: #ccc;}
     </style>
 </head>
 <body>
     <div class="g-layout">
         <div id="demo">
-            <h3>新闻</h3>
+            <h3>新闻头条</h3>
             核心提示：美国《华尔街日报》评论认为，“习近平打虎面临更多挑战。”美国多维新闻网刊文称“习近平挥棒打虎卡通画，尺度大惊人。”世界新闻网则表示，“Q版习大大打虎，神秘工作室出品。”
         </div>
         <div class="content">
@@ -50,6 +53,15 @@
             <div class="content-right">right</div>
         </div>
         <div class="banner">banner</div>
+        <div class="adbox">
+            <ul class="ad" id="J_Ad">
+                <li>广告1</li>
+                <li>广告2</li>
+                <li>广告3</li>
+                <li>广告4</li>
+                <li>广告5</li>
+            </ul>
+        </div>
         <div class="logos">
             <ul class="logoslist">
                 <li>logos_01</li>
@@ -67,5 +79,41 @@
             <p>Copyright©2014</p>
         </div>
     </div>
+    <script src="http://touch.code.baidu.com/touch-0.2.14.min.js"></script>
+    <script>
+
+        var target = document.getElementById("J_Ad");
+        var adLen = target.getElementsByTagName('li').length;
+        var i = 0;
+
+        target.style.webkitTransition = 'all ease 0.2s';
+        target.style.width = adLen*100+'%';
+
+
+        touch.on(target, 'touchstart', function(ev){
+            ev.preventDefault();
+        });
+
+        touch.on(target, 'swiperight', function(ev){
+            if(i<=0){
+                i = 0;
+            }else{
+                i--;
+            }
+            target.style.webkitTransform = "translate3d(-" + i*16 + "rem,0,0)";
+            
+        });
+
+        touch.on(target, 'swipeleft', function(ev){
+
+            if(i>=adLen-1){
+                i = adLen -1;
+            }else{
+                i++;    
+            }
+            
+            target.style.webkitTransform = "translate3d(-" + i*16 + "rem,0,0)";
+        });
+    </script>
 </body>
 </html>
